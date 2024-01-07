@@ -17,7 +17,6 @@ async function bootstrap() {
     .setTitle('Nest posts')
     .setDescription('Nest posts doc')
     .setVersion('1.0.0')
-    .addTag('NEST')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

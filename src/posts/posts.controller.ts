@@ -33,7 +33,7 @@ export class PostsController {
   @ApiOperation({ summary: 'Delete post by id' })
   @ApiResponse({ status: 200, type: PostModel })
   @Delete(':id')
-  async deleteResource(@Param('id') id: string) {
+  deleteResource(@Param('id') id: string) {
     return this.postService.deletePostById(id);
   }
 }
