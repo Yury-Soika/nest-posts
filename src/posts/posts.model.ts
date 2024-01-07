@@ -16,7 +16,7 @@ interface PostCreationAttrs {
   userId: number;
 }
 
-@Table({ tableName: 'posts' })
+@Table({ tableName: 'posts', createdAt: false, updatedAt: false })
 export class Post extends Model<Post, PostCreationAttrs> {
   @Column({
     type: DataType.STRING,

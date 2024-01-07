@@ -24,4 +24,13 @@ export class UsersService {
     });
     return user;
   }
+
+  async deleteUser(id: number) {
+    const user = await this.userRepository.findByPk(id);
+    if (user) {
+      await user.destroy();
+      return user;
+    }
+    return null;
+  }
 }
