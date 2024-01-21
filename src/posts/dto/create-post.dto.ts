@@ -6,13 +6,6 @@ export class CreatePostDto {
     example: 'Awesome JavaScript',
     description: 'post title',
   })
-  @IsString({ message: 'Id should be a string' })
-  readonly id: string;
-
-  @ApiProperty({
-    example: 'Awesome JavaScript',
-    description: 'post title',
-  })
   @IsString({ message: 'Title should be a string' })
   readonly title: string;
 

@@ -8,29 +8,28 @@ export class PostsService {
   constructor(@InjectModel(Post) private postRepository: typeof Post) {}
 
   async create(dto: CreatePostDto) {
-    const post = await this.postRepository.create(dto);
-    return post;
+    return this.postRepository.create(dto);
   }
 
   async getAllPosts() {
-    const posts = await this.postRepository.findAll({ include: { all: true } });
-    return posts;
+    return this.postRepository.findAll({ include: { all: true } });
   }
 
   async getPostById(id: string) {
-    const post = await this.postRepository.findOne({
+    return this.postRepository.findOne({
       where: { id },
       include: { all: true },
     });
-    return post;
   }
 
   async deletePostById(id: string) {
     const post = await this.postRepository.findByPk(id);
+
     if (post) {
       await post.destroy();
       return post;
     }
+
     return null;
   }
 }
