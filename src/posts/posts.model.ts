@@ -10,7 +10,6 @@ import { User } from '../users/users.model';
 import { ApiProperty } from '@nestjs/swagger';
 
 interface PostCreationAttrs {
-  id: string;
   title: string;
   description: string;
   userId: number;
@@ -18,11 +17,14 @@ interface PostCreationAttrs {
 
 @Table({ tableName: 'posts', createdAt: false, updatedAt: false })
 export class Post extends Model<Post, PostCreationAttrs> {
+  @ApiProperty({ example: '1', description: 'User id' })
   @Column({
-    type: DataType.STRING,
+    type: DataType.INTEGER,
+    unique: true,
+    autoIncrement: true,
     primaryKey: true,
   })
-  id: string;
+  id: number;
 
   @ApiProperty({
     example: 'Awesome JavaScript',
